@@ -1,0 +1,21 @@
+CREATE DATABASE ABC;
+use ABC;
+CREATE TABLE table1 (id INT PRIMARY KEY,name VARCHAR(50));
+CREATE TABLE table2 (id INT PRIMARY KEY,description VARCHAR(100));
+INSERT INTO table1 (id, name) VALUES (1, 'John');
+INSERT INTO table1 (id, name) VALUES (2, 'Jane');
+INSERT INTO table1 (id, name) VALUES (3, 'Mike');
+INSERT INTO table2 (id, description) VALUES (1, 'Description 1');
+INSERT INTO table2 (id, description) VALUES (3, 'Description 3');
+INSERT INTO table2 (id, description) VALUES (4, 'Description 4');
+
+Set Operators....
+SELECT id, name FROM table1 UNION SELECT id, description FROM table2;
+SELECT id, name FROM table1 UNION ALL SELECT id, description FROM table2;
+-- MySQL Workbech Dosen't Support Intersect and Minus
+
+Views Operators...
+create view t1 as select * from table1;
+ALTER VIEW t1 AS SELECT id FROM table1;
+select * from t1;
+drop view t1;
