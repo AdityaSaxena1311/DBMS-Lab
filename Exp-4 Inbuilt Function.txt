@@ -1,0 +1,63 @@
+
+CREATE DATABASE ABC;
+use ABC;
+CREATE TABLE table1 (id INT PRIMARY KEY,name VARCHAR(50));
+CREATE TABLE table2 (id INT PRIMARY KEY,description VARCHAR(100));
+INSERT INTO table1 (id, name) VALUES (1, 'John');
+INSERT INTO table1 (id, name) VALUES (2, 'Jane');
+INSERT INTO table1 (id, name) VALUES (3, 'Mike');
+INSERT INTO table2 (id, description) VALUES (1, 'Description 1');
+INSERT INTO table2 (id, description) VALUES (3, 'Description 3');
+INSERT INTO table2 (id, description) VALUES (4, 'Description 4');
+
+-- Case Function
+SELECT
+  id,
+  name,
+  CASE
+    WHEN id = 1 THEN 'First'
+    WHEN id = 2 THEN 'Second'
+    ELSE 'Other'
+  END AS category
+FROM table1;
+
+-- String Function
+SELECT CONCAT(name, ' - ', description) AS combined_string
+FROM table1
+JOIN table2 ON table1.id = table2.id;
+SELECT UPPER(name) AS uppercase_name
+FROM table1;
+SELECT SUBSTRING(description, 1, 10) AS substring_description
+FROM table2;
+SELECT name, LENGTH(name) AS name_length
+FROM table1;
+
+-- Date Function
+select current_date;
+select current_timestamp;
+select month("2022-10-20 09:45:21") as month;
+select monthname("2022-10-20 09:45:21") as month;
+select dayname("2022-10-20 09:45:21");
+
+-- Aggregate Functions 
+SELECT COUNT(*) AS total_rows FROM table1;
+SELECT SUM(id) AS id_sum FROM table1;
+SELECT AVG(id) AS id_average FROM table1;
+SELECT AVG(id) AS id_average FROM table1;
+SELECT MAX(id) AS id_max FROM table1;
+
+-- Numeric Function
+select floor(4.1234),ceil(4.3),round(4.8),abs(-6.5);
+select pow(2,2),sqrt(16),round(rand()*100);
+select sin(3.141592653589793238);
+
+-- Case Manipulation Functions
+SELECT UPPER('hello') AS upper_case_string;
+SELECT LOWER('WORLD') AS lower_case_string;
+SELECT UCASE('abc') AS upper_case_string;
+SELECT LCASE('XYZ') AS lower_case_string;
+
+-- NVL FUnction
+SELECT table1.id, IFNULL(table2.description, 'N/A') AS description
+FROM table1
+LEFT JOIN table2 ON table1.id = table2.id;
