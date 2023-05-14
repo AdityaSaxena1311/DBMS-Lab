@@ -1,0 +1,27 @@
+CREATE DATABASE ABC;
+use ABC;
+CREATE TABLE table1 (id INT PRIMARY KEY,name VARCHAR(50));
+CREATE TABLE table2 (id INT PRIMARY KEY,description VARCHAR(100));
+INSERT INTO table1 (id, name) VALUES (1, 'John');
+INSERT INTO table1 (id, name) VALUES (2, 'Jane');
+INSERT INTO table1 (id, name) VALUES (3, 'Mike');
+INSERT INTO table2 (id, description) VALUES (1, 'Description 1');
+INSERT INTO table2 (id, description) VALUES (3, 'Description 3');
+INSERT INTO table2 (id, description) VALUES (4, 'Description 4');
+
+-- INNER JOIN
+SELECT * FROM table1 INNER JOIN table2 ON table1.id = table2.id;
+
+-- LEFT OUTER JOIN
+SELECT * FROM table1 LEFT JOIN table2 ON table1.id = table2.id;
+
+-- RIGHT OUTER JOIN
+SELECT * FROM table1 RIGHT JOIN table2 ON table1.id = table2.id;
+
+-- FULL OUTER JOIN 
+SELECT * FROM table1 LEFT JOIN table2 ON table1.id = table2.id 
+UNION
+SELECT * FROM table1 RIGHT JOIN table2 ON table1.id = table2.id;
+
+-- SELF JOIN
+SELECT * FROM table1 t1 JOIN table1 t2 ON t1.id <> t2.id;
