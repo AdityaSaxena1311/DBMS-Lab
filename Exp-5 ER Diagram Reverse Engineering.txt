@@ -1,0 +1,14 @@
+create database theatre;
+use theatre;
+CREATE TABLE halls(hall_id int primary key,hall_title varchar(25),seats_no int);
+CREATE TABLE movie(movie_id int primary key,movie_title VARCHAR(25), movie_genre varchar(25),duration int);
+create table screening(scr_id int primary key,movie_id int,hall_id int,scr_date date,scr_start time,scr_end time,
+foreign key (movie_id) references movie(movie_id),
+foreign key (hall_id) references halls(hall_id));
+
+1.To construct ER-Model go to menu Database, choose Reverse Engineer... option.
+2.Provide connection details to your database and click Next. Wait for the connection and click Next again.
+3.When successfully connected wizard will show you list of available schemas on the server. Select the ones you want to reverse engineer.
+4.Wait for the schemas being read and continue with Next. On next screen you have an option to select object types and filter specific objects. Let's ignore it and import all objects. Click Execute >.
+5.Wait for reverse engineering to take place and when done continue with Next. Final screen shows you a summary of the import. Close with Finish.
+6. When the process ends with success you get a new model (see above for more details) with default ER diagram with all the tables and views from all imported schemas.

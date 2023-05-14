@@ -1,0 +1,8 @@
+1.Select the model that you wish to forward engineer and then choose the Database, Forward Engineer menu item from the main menu.
+2.The first step of the process is to connect to a MySQL server to create the new database schema. As the following figure shows, this page enables you to use a previously stored connection or to enter the connection parameters.
+3.Click Next after setting the connection parameters. The next page of the wizard displays Catalog Validation, as the following figure shows. Validation is available only in the Commercial Edition.
+4.Click Run Validations to validate the catalog and Click Next to continue.
+5.The next page enables you to set options for the database to be created (see the following figure). These options are as described in Section 9.4.1.1.1, “Creating a Schema”.
+6.As the following figure shows, the Select Objects page enables you to select the objects to forward engineer: Table objects, view objects, routine objects, trigger objects, and user objects.
+7.To select a subset of objects to forward engineer, use the Show Filter/Hide Filter button, then select specific objects. After you have selected your objects, click Next to continue.
+8.Click Next to continue if you are satisfied with the generated script and the next page of the wizard displays the results of the forward engineering process.
