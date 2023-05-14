@@ -1,0 +1,17 @@
+create database theatre;
+use theatre;
+-- Create Commands
+CREATE TABLE halls(hall_id int primary key,hall_title varchar(25),seats_no int);
+CREATE TABLE movie(movie_id int primary key,movie_title VARCHAR(25), movie_genre varchar(25),duration int);
+-- Insert
+insert into halls values(1,'Audi 1',50);
+insert into movie values(1,"QWERTY","Action","XYZ",2);
+-- Update
+update halls set hall_title='Audi-1' where hall_id=1;
+update movie set movie_title=”QWERTY-1” where movie_id=1;
+-- Select
+select * from halls where seats_no=50;
+select * from movie where movie_genre="Action";
+-- Delete
+delete from halls where hall_id=3;
+delete from movie  where movie_genre="Action";
