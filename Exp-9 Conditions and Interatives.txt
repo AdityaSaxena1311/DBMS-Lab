@@ -1,0 +1,35 @@
+-- Conditionals
+DECLARE
+  grade VARCHAR2(2);
+BEGIN
+  grade := 'A';
+  
+  IF grade = 'A' THEN
+    DBMS_OUTPUT.PUT_LINE('Excellent!');
+  ELSIF grade = 'B' THEN
+    DBMS_OUTPUT.PUT_LINE('Good job!');
+  ELSE
+    DBMS_OUTPUT.PUT_LINE('Try harder next time!');
+  END IF;
+END;
+
+-- Iterative
+-- While
+DECLARE
+  i NUMBER := 1;
+BEGIN
+  WHILE i <= 10 LOOP
+    DBMS_OUTPUT.PUT_LINE(i);
+    i := i + 1; 
+  END LOOP;
+END;
+
+--For
+DECLARE
+  i NUMBER;
+BEGIN
+  FOR i IN 1..10 LOOP
+    DBMS_OUTPUT.PUT_LINE(i);
+  END LOOP;
+END;
+

@@ -1,0 +1,10 @@
+-- Procedure
+CREATE OR REPLACE PROCEDURE print_message IS
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('Hello, world!');
+END;
+/
+BEGIN
+  print_message;
+END;
+/

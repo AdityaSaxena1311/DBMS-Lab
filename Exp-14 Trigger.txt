@@ -1,0 +1,11 @@
+CREATE SEQUENCE employees_seq;
+CREATE OR REPLACE TRIGGER employees_before_insert
+BEFORE INSERT ON employees
+FOR EACH ROW
+DECLARE
+  v_id NUMBER;
+BEGIN
+  SELECT employees_seq.nextval INTO v_id FROM dual;
+  :new.employee_id := v_id;
+END;
+/

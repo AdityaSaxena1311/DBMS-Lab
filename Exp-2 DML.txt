@@ -1,0 +1,14 @@
+create database theatre;
+use theatre;
+-- Create Commands
+CREATE TABLE halls(hall_id int primary key,hall_title varchar(25),seats_no int);
+CREATE TABLE movie(movie_id int primary key,movie_title VARCHAR(25), movie_genre varchar(25),duration int);
+-- Alter Commands
+alter table halls drop column hall_title;
+alter table movie rename column movie_title to movie_name;
+-- Rename Commands
+rename table halls to cinema_halls;
+rename table movie to movie_theatres;
+-- Delete Commands
+drop table cinema_halls;
+drop table movie_theatres;

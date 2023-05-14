@@ -1,0 +1,45 @@
+CREATE TABLE employees (
+  employee_id NUMBER(6),
+  first_name VARCHAR2(50),
+  last_name VARCHAR2(50)
+);
+
+INSERT INTO employees (employee_id, first_name, last_name) VALUES (101, 'Smith', 'David');
+INSERT INTO employees (employee_id, first_name, last_name) VALUES (102, 'Lee', 'David');
+INSERT INTO employees (employee_id, first_name, last_name) VALUES (103, 'Johnson', 'Sarah');
+
+--Implicit cursor
+DECLARE
+  first_name_var employees.first_name%TYPE;
+  last_name_var employees.last_name%TYPE;
+BEGIN
+  SELECT first_name, last_name
+  INTO first_name_var, last_name_var
+  FROM employees
+  WHERE employee_id = 101;
+  DBMS_OUTPUT.PUT_LINE('First Name: ' || first_name_var);
+  DBMS_OUTPUT.PUT_LINE('Last Name: ' || last_name_var);
+END;
+/
+
+--Explicit cursor
+DECLARE
+  CURSOR emp_cursor IS
+    SELECT first_name, last_name
+    FROM employees;
+  first_name_var employees.first_name%TYPE;
+  last_name_var employees.last_name%TYPE;
+BEGIN
+  OPEN emp_cursor;
+  
+  LOOP
+    FETCH emp_cursor INTO first_name_var, last_name_var;
+    EXIT WHEN emp_cursor%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE('First Name: ' || first_name_var);
+    DBMS_OUTPUT.PUT_LINE('Last Name: ' || last_name_var);
+  END LOOP;
+  
+  CLOSE emp_cursor;
+END;
+/
+

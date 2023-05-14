@@ -1,0 +1,17 @@
+-- FUNCTION
+CREATE OR REPLACE FUNCTION calc_area(radius IN NUMBER) RETURN NUMBER IS
+  pi CONSTANT NUMBER := 3.14;
+  area NUMBER;
+BEGIN
+  area := pi * radius * radius;
+  RETURN area;
+END;
+/
+DECLARE
+  radius NUMBER := 5.0;
+  area NUMBER;
+BEGIN
+  area := calc_area(radius);
+  DBMS_OUTPUT.PUT_LINE('The area of the circle is ' || area);
+END;
+/
